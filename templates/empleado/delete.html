@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!-- Title -->
+{% block title %} Eliminar Empleado {% endblock title %}
+<!-- Content -->
+{% block content %}
+<!-- Header -->
+{% include 'includes/header.html' %}
+<div class="grid-container">
+	<div class="grid-x">
+		<h1 class="cell">Eliminar empleado</h1>
+		<form method="POST" class="cell">
+			{% csrf_token %}
+			<div class="callout alert">
+				<h5>¿Confirma eliminación?</h5>
+				<p>
+					Esta por eliminar el empleado <b>{{empleado.full_name}}</b>. Al
+					eliminarlo no podrá recuperarlo
+				</p>
+				<button type="submit" class="button alert">Eliminar</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock content %}

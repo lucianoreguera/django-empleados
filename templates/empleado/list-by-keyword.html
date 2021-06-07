@@ -1,0 +1,21 @@
+<h1>Listado de empleados por palabra clave</h1>
+<form method="GET">
+	{% csrf_token %}
+	<input
+		type="text"
+		id="keyword"
+		name="keyword"
+		placeholder="Ingrese palabra clave"
+	/>
+	<button type="submit">Buscar</button>
+</form>
+
+{% if empleados %}
+<ul>
+	{% for empleado in empleados %}
+	<li>{{empleado}}</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>No hay empleados para la palabra clave ingresada</p>
+{% endif %}
